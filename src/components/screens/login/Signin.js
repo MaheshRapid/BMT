@@ -56,7 +56,7 @@ const Signin = ({ navigation }) => {
   const namereg = new RegExp(
     /^[a-zA-Z]+$/,
   );
-  
+
 
 
 
@@ -64,10 +64,10 @@ const Signin = ({ navigation }) => {
     setvisiblemodal(false);
   };
 
-  
+
 
   const signupsubmit = () => {
-    console.log("password>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..",password,conpassword);
+    console.log("password>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..", password, conpassword);
     const valid = signup(email, password, name, mobileno)
 
     if (email == '' || password == '' || name == '' || mobileno == '') {
@@ -75,97 +75,97 @@ const Signin = ({ navigation }) => {
         'Error',
         'Enter all values',
         [
-          
+
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
-    else if(namereg.test(name) === false){
+    else if (namereg.test(name) === false) {
       Alert.alert(
         'Error',
         'Please Enter Valid Name',
         [
-          
+
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
-    else if(phonereg.test(mobileno) === false){
+    else if (phonereg.test(mobileno) === false) {
       Alert.alert(
         'Error',
         'Please Enter Valid Phone Number',
         [
-          
+
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
-   else if(emailreg.test(email) === false){
+    else if (emailreg.test(email) === false) {
       Alert.alert(
         'Error',
         'Please Enter Valid Email',
         [
-          
+
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
-   
-   else if(password !== conpassword){
+
+    else if (password !== conpassword) {
       Alert.alert(
         'Error',
         'Please Enter valied confirm password',
         [
-          
+
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
         ],
-        {cancelable: false},
+        { cancelable: false },
       );
     }
-  else {
-    Alert.alert(
-      'Error',
-      'Login is done',
-      [
-        
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ],
-      {cancelable: false},
-    );
+    else {
+      Alert.alert(
+        'Error',
+        'Login is done',
+        [
+
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel',
+          },
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
 
       dispatch(usersignup({
         email,
@@ -198,8 +198,8 @@ const Signin = ({ navigation }) => {
       setTimeout(() => {
         navigation.navigate('Login');
       }, 1000);
-    
-    
+
+
     }
 
 
@@ -218,29 +218,28 @@ const Signin = ({ navigation }) => {
         )}
       <ScrollView>
         <View style={styles.container}>
-          <ImageBackground source={require('../../../assests/images/login.jpg')} style={{width:width,height:height}}>
+          {/* <ImageBackground source={require('../../../assests/images/login.jpg')} style={{ width: width, height: height }}> */}
             <Spinner
               visible={fetchstatus}
               textContent={'Loading...'}
               textStyle={styles.spinnerTextStyle}
             />
             <View style={{ marginTop: 40, marginBottom: 30 }}>
-              <Text style={{ textAlign: 'center', fontWeight: '900', fontSize: 70, color: 'white' }}>
-                B 2 B
+              <Text style={{ textAlign: 'center', fontWeight: '900', fontSize: 30, color: 'white' }}>
+                BOOK MY TEACHER
               </Text>
             </View>
-            <View style={[styles.textContainer]}>
+            <View style={styles.textContainer}>
               <TextInput
-                placeholder="UserName"
+                placeholder='9988559977'
                 style={[styles.Textinput]}
-                keyboardType="default"
+                value={email}
+                keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
-                value={name}
-                onChangeText={(value) => setname(value)}
                 enablesReturnKeyAutomatically={true}
                 returnKeyType="next"
-
+                onChangeText={(value) => setemail(value)}
               />
             </View>
 
@@ -311,8 +310,8 @@ const Signin = ({ navigation }) => {
 
               </TouchableOpacity>
             </View>
-            <View style={[styles.lineView]} />
-            <View style={[styles.signup]}>
+            {/* <View style={[styles.lineView]} /> */}
+            {/* <View style={[styles.signup]}>
               <Text style={[styles.resetText]}>Already have an account ?</Text>
               <TouchableOpacity
                 onPress={() => {
@@ -321,8 +320,8 @@ const Signin = ({ navigation }) => {
               >
                 <Text style={[styles.btnText]}>Sign In</Text>
               </TouchableOpacity>
-            </View>
-          </ImageBackground>
+            </View> */}
+          {/* </ImageBackground> */}
         </View>
       </ScrollView>
     </SafeAreaView>

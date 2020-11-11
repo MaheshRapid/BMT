@@ -31,9 +31,12 @@ const styles = StyleSheet.create({
         color: '#FFFFFF', fontSize: 25, textAlign: 'center'
     },
     textContainer: {
-
+width:('80%'),
+borderBottomWidth:1,
+borderBottomColor:'#FCCE09',
         alignItems: 'center',
         justifyContent: 'center',
+        alignSelf:'center'
 
     },
     label: {
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     },
 
     Btncontainer: {
-        marginTop: 10,
+        marginTop: 100,
         alignItems: flexVariable.center,
         justifyContent: flexVariable.center,
 
