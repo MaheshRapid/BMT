@@ -219,109 +219,91 @@ const Signin = ({ navigation }) => {
       <ScrollView>
         <View style={styles.container}>
           {/* <ImageBackground source={require('../../../assests/images/login.jpg')} style={{ width: width, height: height }}> */}
-            <Spinner
-              visible={fetchstatus}
-              textContent={'Loading...'}
-              textStyle={styles.spinnerTextStyle}
-            />
-            <View style={{ marginTop: 40, marginBottom: 30 }}>
-              <Text style={{ textAlign: 'center', fontWeight: '900', fontSize: 30, color: 'white' }}>
-                BOOK MY TEACHER
+          <Spinner
+            visible={fetchstatus}
+            textContent={'Loading...'}
+            textStyle={styles.spinnerTextStyle}
+          />
+          <View style={{ marginTop: 40, marginBottom: 30 }}>
+            <Text style={{ textAlign: 'center', fontWeight: '900', fontSize: 30, color: '#02ACE6' }}>
+              BOOK MY TEACHER
               </Text>
-            </View>
-            <View style={styles.textContainer}>
+          </View>
+
+
+          <View style={styles.t3}>
+            <View style={styles.v6}>
               <TextInput
-                placeholder='9988559977'
+                placeholder='Enter your Mobile Number'
                 style={[styles.Textinput]}
-                value={email}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-                enablesReturnKeyAutomatically={true}
-                returnKeyType="next"
-                onChangeText={(value) => setemail(value)}
+                // value={email}
+                keyboardType='number-pad'
+              // autoCapitalize="none"
+              // autoCorrect={false}
+              // enablesReturnKeyAutomatically={true}
+              // returnKeyType="next"
+              // onChangeText={(value) => setemail(value)}
               />
             </View>
+          </View>
 
-            <View style={[styles.textContainer]}>
+          <View style={styles.t3}>
+            <View style={styles.v6}>
               <TextInput
-                placeholder="Email"
+                placeholder='Enter your EMail'
                 style={[styles.Textinput]}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-                value={email}
-                onChangeText={(value) => setemail(value)}
-                enablesReturnKeyAutomatically={true}
-                returnKeyType="next"
-
+              // value={email}
+              // keyboardType="email-address"
+              // autoCapitalize="none"
+              // autoCorrect={false}
+              // enablesReturnKeyAutomatically={true}
+              // returnKeyType="next"
+              // onChangeText={(value) => setemail(value)}
               />
             </View>
+          </View>
 
-            <View style={[styles.textContainer]}>
+          <View style={styles.t3}>
+            <View style={styles.v6}>
               <TextInput
-                placeholder="Mobile"
+                placeholder='Enter Password'
                 style={[styles.Textinput]}
-                keyboardType="default"
-                enablesReturnKeyAutomatically={true}
-                returnKeyType="done"
-                value={mobileno}
-                onChangeText={(value) => setmobileno(value)}
-                clearTextOnFocus={true}
-                maxLength={15}
+              // value={email}
+              // keyboardType="email-address"
+              // autoCapitalize="none"
+              // autoCorrect={false}
+              // enablesReturnKeyAutomatically={true}
+              // returnKeyType="next"
+              // onChangeText={(value) => setemail(value)}
               />
             </View>
+          </View>
 
-            <View style={[styles.textContainer]}>
+          <View style={styles.t3}>
+            <View style={styles.v6}>
               <TextInput
-                placeholder="Password"
+                placeholder='Re-Enter Password'
                 style={[styles.Textinput]}
-                keyboardType="default"
-                secureTextEntry={true}
-                enablesReturnKeyAutomatically={true}
-                returnKeyType="done"
-                value={password}
-                onChangeText={(value) => setpassword(value)}
-                clearTextOnFocus={true}
-                maxLength={15}
+              // value={email}
+              // keyboardType="email-address"
+              // autoCapitalize="none"
+              // autoCorrect={false}
+              // enablesReturnKeyAutomatically={true}
+              // returnKeyType="next"
+              // onChangeText={(value) => setemail(value)}
               />
             </View>
+          </View>
 
-            <View style={[styles.textContainer]}>
-              <TextInput
-                placeholder="Confirm Password"
-                style={[styles.Textinput]}
-                keyboardType="default"
-                secureTextEntry={true}
-                enablesReturnKeyAutomatically={true}
-                returnKeyType="next"
-                value={conpassword}
-                onChangeText={(value) => setconpassword(value)}
-                clearTextOnFocus={true}
-                maxLength={15}
-              />
-            </View>
-            <View style={[styles.Btncontainer]}>
-              <TouchableOpacity
-                onPress={() => signupsubmit()}
-                style={[styles.button]}>
 
-                <Text style={[styles.text]}>SIGN UP NOW</Text>
 
-              </TouchableOpacity>
-            </View>
-            {/* <View style={[styles.lineView]} /> */}
-            {/* <View style={[styles.signup]}>
-              <Text style={[styles.resetText]}>Already have an account ?</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Login");
-                }}
-              >
-                <Text style={[styles.btnText]}>Sign In</Text>
-              </TouchableOpacity>
-            </View> */}
-          {/* </ImageBackground> */}
+          <View style={[styles.Btncontainer]}>
+            <TouchableOpacity
+              onPress={() => signupsubmit()}
+              style={[styles.button]}>
+              <Text style={[styles.text]}>SIGN UP NOW</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

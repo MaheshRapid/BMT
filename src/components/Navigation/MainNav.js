@@ -40,6 +40,8 @@ const Drawer = createDrawerNavigator();
 
 const invStack = createStackNavigator();
 
+
+
 const InvdStackScreen = ({navigation}) => (
   <invStack.Navigator
     screenOptions={{

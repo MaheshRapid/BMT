@@ -118,17 +118,17 @@ const Login = ({ navigation }) => {
               </Text>
           </View>
           <View style={styles.v2}>
-            <Text style={styles.t1}>
-              SIGN UP
+            <Text style={styles.t11}>
+              SIGN-IN
               </Text>
           </View>
 
 
           <View style={styles.t3}>
-            <Text style={styles.t2}>EMail</Text>
-            <View style={{ borderBottomWidth: 1, borderBottomColor: '#FBD203' }}>
+            {/* <Text style={styles.t2}>EMail</Text> */}
+            <View style={styles.v6}>
               <TextInput
-                placeholder='XXXXXXXXX@gmail.com'
+                placeholder='Enter your Email'
                 style={[styles.Textinput]}
                 value={email}
                 keyboardType="email-address"
@@ -144,18 +144,20 @@ const Login = ({ navigation }) => {
           <Text style={styles.or}>or</Text>
 
           <View style={styles.t3}>
-            <Text style={{ color: '#FFFFFF', fontSize: 20 }}>Phone Number</Text>
-            <View style={{ borderBottomWidth: 1, borderBottomColor: '#FBD203' }}>
+            {/* <Text style={styles.t2}>Password</Text> */}
+            {/* <Text style={{ color: '#FFFFFF', fontSize: 20 }}>Phone Number</Text> */}
+            <View style={styles.v6}>
               <TextInput
-                placeholder='9988559977'
+                placeholder='Enter your password'
                 style={[styles.Textinput]}
-                value={email}
-                keyboardType="email-address"
+                value={password}
+                keyboardType="default"
                 autoCapitalize="none"
+                secureTextEntry={true}
                 autoCorrect={false}
                 enablesReturnKeyAutomatically={true}
-                returnKeyType="next"
-                onChangeText={(value) => setemail(value)}
+                returnKeyType="done"
+                onChangeText={(value) => setpassword(value)}
               />
             </View>
           </View>
@@ -183,7 +185,7 @@ const Login = ({ navigation }) => {
                 enablesReturnKeyAutomatically={true}
                 returnKeyType="done"
                 clearTextOnFocus={true}
-                onChangeText={(value) => setpassword(value)}
+                onChangeText={(value) => setpassword(value)}  
                 maxLength={15}
               />
             </View> */}

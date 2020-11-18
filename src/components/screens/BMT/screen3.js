@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { View, Picker, StyleSheet, Text, Alert, TextInput, TouchableOpacity, Image, ScrollView } from "react-native";
 import DatePicker from 'react-native-datepicker';
-import {citylist,statelist,quallist,explist,noticelist,subjectlist,gradelist,empcatlist} from '../../redux/selector/getallselector';
+import { citylist, statelist, quallist, explist, noticelist, subjectlist, gradelist, empcatlist } from '../../redux/selector/getallselector';
 import ImagePicker from 'react-native-image-picker';
-import {msgg} from '../../redux/selector/teacherselector';
-import {teacher_add_action} from '../../redux/action/teacheraction';
-import {useSelector, useDispatch} from 'react-redux';
+import { msgg } from '../../redux/selector/teacherselector';
+import { teacher_add_action } from '../../redux/action/teacheraction';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Screen3 = () => {
+
+const Screen3 = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const clist = useSelector(citylist);
@@ -48,69 +49,69 @@ const Screen3 = () => {
     const [banner, setbanner] = useState('');
 
 
-    const grs_code='5000';
- console.log("before",gender)
+    const grs_code = '5000';
+    console.log("before", gender)
 
 
- const handleChoosePhoto = () => {
-    const options = {
-      title: 'Banner',
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
+    const handleChoosePhoto = () => {
+        const options = {
+            title: 'Banner',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+            },
+        };
+
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response = ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            } else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            } else {
+                const source1111 = { uri: response.uri };
+                const source = {
+                    uri: 'data:' + response.fileName + ';base64,' + response.data,
+                };
+                //  console.log(source)
+                setbanner(source);
+            }
+        });
     };
 
-    ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      } else {
-        const source1111 = {uri: response.uri};
-        const source = {
-          uri: 'data:' + response.fileName + ';base64,' + response.data,
-        };
-        //  console.log(source)
-        setbanner(source);
-      }
-    });
-  };
 
 
 
 
-
-    const onsubmitapp=()=>{
+    const onsubmitapp = () => {
         //  console.log(name,gender,plotno,landmark,city,state,pincode,mobile,amobile,qual,exp,datefrom,dateto,sname,notice,subject,grade,empcat,additional,banner,resume)
-        if(name==""){
+        if (name == "") {
             Alert.alert(
                 "Error",
                 "Enter all values",
                 [
-                  {
-                    text: "Cancel",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                  },
-                  { text: "OK", onPress: () => console.log("OK Pressed") }
+                    {
+                        text: "Cancel",
+                        onPress: () => console.log("Cancel Pressed"),
+                        style: "cancel"
+                    },
+                    { text: "OK", onPress: () => console.log("OK Pressed") }
                 ],
                 { cancelable: false }
-              );
-           }
-           else{
+            );
+        }
+        else {
             // console.log(typeof(prcolor)+secolor+rsa_code)
             dispatch(
-             teacher_add_action({grs_code,name,gender,plotno,landmark,city,state,pincode,mobile,amobile,qual,exp,datefrom,dateto,sname,notice,subject,grade,empcat,additional,banner}),
-              );
-             
-       
-           }
-           console.log("response=======================",msg1)
+                teacher_add_action({ grs_code, name, gender, plotno, landmark, city, state, pincode, mobile, amobile, qual, exp, datefrom, dateto, sname, notice, subject, grade, empcat, additional, banner }),
+            );
+
+
+        }
+        console.log("response=======================", msg1)
     }
     return (
         <ScrollView
@@ -132,9 +133,9 @@ const Screen3 = () => {
                         <View>
                             <Text style={{ color: '#909090', fontSize: 12 }}>Name</Text>
                             <View style={{ borderWidth: 1, height: 47, width: 132, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput 
-                            onChangeText={(value) => setname(value)}
-                            placeholder="Input" />
+                                <TextInput
+                                    onChangeText={(value) => setname(value)}
+                                    placeholder="Input" />
                             </View>
                         </View>
 
@@ -159,28 +160,28 @@ const Screen3 = () => {
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>HouseNo/FlatNo/PlotNo</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setplotno(value)}
-                        placeholder="Input" />
+                            <TextInput
+                                onChangeText={(value) => setplotno(value)}
+                                placeholder="Input" />
                         </View>
                     </View>
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Apartment Name/Locality/Landmark</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setlandmark(value)}
-                        placeholder="Input" />
+                            <TextInput
+                                onChangeText={(value) => setlandmark(value)}
+                                placeholder="Input" />
                         </View>
                     </View>
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>City</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
+                            <View style={{ borderWidth: 1, width: 136, borderRadius: 5, borderColor: '#95989A' }}>
                                 <Picker
                                     mode="dropdown"
                                     style={{ width: 120 }}
-                    
+
                                     selectedValue={city}
                                     onValueChange={value => setcity(value)}
                                 >
@@ -189,62 +190,78 @@ const Screen3 = () => {
                                         <Picker.Item key={index + city1.cityid} label={city1.cityname} value={city1.cityid} />
                                     ))}
 
-                                </Picker> 
+                                </Picker>
                             </View>
                         </View>
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>State</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                            <View style={{ borderWidth: 1, width: 136, borderRadius: 5, borderColor: '#95989A' }}>
+                                <Picker
                                     mode="dropdown"
                                     style={{ width: 120 }}
-                    
                                     selectedValue={state}
-                                    onValueChange={value => setstate(value)}
-                                >
+                                    onValueChange={value => setstate(value)}>
                                     {slist.map((state, index) => (
-
                                         <Picker.Item key={index + state.stateid} label={state.state_name} value={state.stateid} />
                                     ))}
-
                                 </Picker>
                             </View>
                         </View>
                     </View>
 
-                    <View style={{ paddingTop: 10 }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
+                        <View>
+                            <Text style={{ color: '#909090', fontSize: 12 }}>Zip/PinCode</Text>
+                            <View style={{ borderWidth: 1, height: 47, width: 136, borderColor: '#95989A', borderRadius: 5 }}>
+                                <TextInput
+                                    onChangeText={(value) => setname(value)}
+                                    placeholder="Input" />
+                            </View>
+                        </View>
+
+                        <View >
+                            <Text style={{ color: '#909090', fontSize: 12 }}>Allowance range per day</Text>
+                            <View style={{ borderWidth: 1, width: 136, height: 47, borderRadius: 5, borderColor: '#95989A' }}>
+                                <Picker
+                                    mode="dropdown"
+                                    style={{ width: 120 }}
+                                    selectedValue={gender}
+                                    onValueChange={value => setgender(value)}
+                                >
+                                    <Picker.Item label="800" value="8h" />
+                                    <Picker.Item label="100" value="10h" />
+                                </Picker>
+                            </View>
+                        </View>
+                    </View>
+
+
+                    {/* <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Zip/PinCode</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setpincode(value)}
-                        placeholder="Input" />
+                            <TextInput
+                                onChangeText={(value) => setpincode(value)}
+                                placeholder="Input" />
                         </View>
-                    </View>
+                    </View> */}
                     <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Mobile Number</Text>
+                        <Text style={{ color: '#909090', fontSize: 12 }}>Alternative Contact Number</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setmobile(value)}
-                        placeholder="Input" />
+                            <TextInput
+                                onChangeText={(value) => setmobile(value)}
+                                placeholder="Enter alternate mobile number" />
                         </View>
                     </View>
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Alternate Mobile Number</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setamobile(value)}
-                        placeholder="Input" />
-                        </View>
-                    </View>
+                 
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>Qualification</Text>
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                                <Picker
                                     mode="dropdown"
-                                    style={{ width: 120 }}
-                    
+                                    style={{ width: 120, height:47}}
+
                                     selectedValue={qual}
                                     onValueChange={value => setqual(value)}
                                 >
@@ -258,9 +275,9 @@ const Screen3 = () => {
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>Exp of Years</Text>
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                                <Picker
                                     mode="dropdown"
-                                    style={{ width: 120 }}
+                                    style={{ width: 120, height:47}}
                                     selectedValue={exp}
                                     onValueChange={value => setexp(value)}
                                 >
@@ -273,7 +290,7 @@ const Screen3 = () => {
                         </View>
                     </View>
 
-                    <View style={{ paddingTop: 10 }}>
+                    {/* <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Previous Employment</Text>
                     </View>
 
@@ -300,7 +317,7 @@ const Screen3 = () => {
                                             marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height: 47, marginTop: 10
                                         }
                                     }}
-                                    onDateChange={(date)=> setdatefrom(date)}
+                                    onDateChange={(date) => setdatefrom(date)}
                                 />
                             </View>
                         </View>
@@ -327,7 +344,7 @@ const Screen3 = () => {
                                             marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height: 47, marginTop: 10
                                         }
                                     }}
-                                    onDateChange={(date)=> setdateto(date)}
+                                    onDateChange={(date) => setdateto(date)}
                                 />
                             </View>
                         </View>
@@ -338,15 +355,15 @@ const Screen3 = () => {
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>School Name</Text>
                             <View style={{ borderWidth: 1, height: 47, width: 132, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput 
-                            onChangeText={(value) => setsname(value)}
-                            placeholder="Input" />
+                                <TextInput
+                                    onChangeText={(value) => setsname(value)}
+                                    placeholder="Input" />
                             </View>
                         </View>
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>Notice Period</Text>
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                                <Picker
                                     mode="dropdown"
                                     style={{ width: 120 }}
                                     selectedValue={notice}
@@ -365,10 +382,10 @@ const Screen3 = () => {
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>Subjects Interested in</Text>
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                                <Picker
                                     mode="dropdown"
                                     style={{ width: 120 }}
-                    
+
                                     selectedValue={subject}
                                     onValueChange={value => setsubject(value)}
                                 >
@@ -383,10 +400,10 @@ const Screen3 = () => {
                         <View >
                             <Text style={{ color: '#909090', fontSize: 12 }}>Grades</Text>
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
+                                <Picker
                                     mode="dropdown"
                                     style={{ width: 120 }}
-                    
+
                                     selectedValue={grade}
                                     onValueChange={value => setgrade(value)}
                                 >
@@ -403,21 +420,21 @@ const Screen3 = () => {
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Employment Category</Text>
                         <View style={{ borderWidth: 1, width: 308, borderRadius: 5, borderColor: '#95989A' }}>
-                        <Picker
-                                    mode="dropdown"
-                                    style={{ width: 300 }}
-                    
-                                    selectedValue={empcat}
-                                    onValueChange={value => setempcat(value)}
-                                >
-                                    {emlist.map((empcat, index) => (
+                            <Picker
+                                mode="dropdown"
+                                style={{ width: 300 }}
 
-                                        <Picker.Item key={index + empcat.emp_catid} label={empcat.emp_category} value={empcat.emp_catid} />
-                                    ))}
+                                selectedValue={empcat}
+                                onValueChange={value => setempcat(value)}
+                            >
+                                {emlist.map((empcat, index) => (
 
-                                </Picker>
+                                    <Picker.Item key={index + empcat.emp_catid} label={empcat.emp_category} value={empcat.emp_catid} />
+                                ))}
+
+                            </Picker>
                         </View>
-                    </View>
+                    </View> */}
 
 
 
@@ -458,38 +475,38 @@ const Screen3 = () => {
 
 
                     {/* image picker */}
-                    <>
-        <View style={{marginTop: '1%'}}>
-          <Text style={{fontSize: 20, marginTop: '2%'}}>Upload Your Photo</Text>
-          {banner == '' ? (
-            <>
-            <Text>Please Upload Your Photo </Text>
-            </>
-          ) : (
-            <Image
-              source={banner}
-              style={{width:'100%', height: 202, marginTop: 5}}
-            />
-          )}
-        </View>
+                    {/* <>
+                        <View style={{ marginTop: '1%' }}>
+                            <Text style={{ fontSize: 20, marginTop: '2%' }}>Upload Your Photo</Text>
+                            {banner == '' ? (
+                                <>
+                                    <Text>Please Upload Your Photo </Text>
+                                </>
+                            ) : (
+                                    <Image
+                                        source={banner}
+                                        style={{ width: '100%', height: 202, marginTop: 5 }}
+                                    />
+                                )}
+                        </View>
 
-        <TouchableOpacity
-          style={{
-            marginTop: 10,
-            height: 45,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 30,
-            backgroundColor: '#508CF5',
-          }}
-          onPress={() => {
-            handleChoosePhoto();
-          }}>
-          <Text>{banner==""?("Upload Your Photo"):("Update Your Photo")}</Text>
-        </TouchableOpacity>
-</>
+                        <TouchableOpacity
+                            style={{
+                                marginTop: 10,
+                                height: 45,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: 30,
+                                backgroundColor: '#508CF5',
+                            }}
+                            onPress={() => {
+                                handleChoosePhoto();
+                            }}>
+                            <Text>{banner == "" ? ("Upload Your Photo") : ("Update Your Photo")}</Text>
+                        </TouchableOpacity>
+                    </> */}
 
-        {/* <View style={{marginTop: '1%'}}>
+                    {/* <View style={{marginTop: '1%'}}>
           <Text style={{fontSize: 20, marginTop: '2%'}}>Upload Your Resume</Text>
           {banner == '' ? (
             <>
@@ -519,33 +536,32 @@ const Screen3 = () => {
         </TouchableOpacity> */}
 
 
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Additional Note</Text>
-                        <View style={{ borderWidth: 1, height: 100, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                        <TextInput 
-                        onChangeText={(value) => setadditional(value)}
-                        placeholder="Input" />
-                        </View>
-                    </View>
-
+                 
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
-                        <View style={{ marginRight: 30 }}>
+                        {/* <View style={{ marginRight: 30 }}>
                             <TouchableOpacity>
                                 <Text style={{ color: '#02ACE6', marginTop: 10 }}>
                                     Cancel
             </Text>
                             </TouchableOpacity>
-                        </View>
+                        </View> */}
 
-                        <View style={{ marginLeft: 60 }}>
+                        {/* <View style={{ marginLeft: 160 }}>
                             <TouchableOpacity>
-                                <Text 
-                                onPress={()=>{onsubmitapp()}}
-                                style={styles.button}>
-                                    Submit
-            </Text>
+                                <Text
+                                    onPress={() => { onsubmitapp() }}
+                                    style={styles.button}>
+                                    Next
+                            </Text>
                             </TouchableOpacity>
+                        </View> */}
+
+                        <View style={{ marginLeft: 160 }}>
+                            <TouchableOpacity style={styles.button}
+                            onPress={() => navigation.navigate('Screen31')}>
+                                <Text style={{color:'white'}}>Next</Text>
+                          </TouchableOpacity>
                         </View>
                     </View>
 

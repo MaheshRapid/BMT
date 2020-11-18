@@ -14,9 +14,9 @@ import colors from '../../../assests/styles/stylesheet/colors';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#02ACE6',
+        // backgroundColor: '#02ACE6',
         height: 850,
-      
+
         //paddingBottom: 0,
         // alignItems: "center"
     },
@@ -27,16 +27,16 @@ const styles = StyleSheet.create({
         opacity: 1,
         paddingBottom: 100
     },
-    or:{
-        color: '#FFFFFF', fontSize: 25, textAlign: 'center'
+    or: {
+        color: 'black', fontSize: 25, textAlign: 'center'
     },
     textContainer: {
-width:('80%'),
-borderBottomWidth:1,
-borderBottomColor:'#FCCE09',
+        width: ('80%'),
+        borderBottomWidth: 1,
+        borderBottomColor: '#555555',
         alignItems: 'center',
         justifyContent: 'center',
-        alignSelf:'center'
+        alignSelf: 'center'
 
     },
     label: {
@@ -52,7 +52,7 @@ borderBottomColor:'#FCCE09',
         height: 40,
         width: '80%',
         // borderBottomWidth:1, borderBottomColor:'#FBD203'
-       
+
     },
     lineView: {
         borderBottomColor: colors.suvaGrey,
@@ -74,8 +74,8 @@ borderBottomColor:'#FCCE09',
         // fontFamily: fontFamily.segoeuiRegular,
     },
     btnText: {
-        marginTop:150,
-        color: colors.white,
+        marginTop: 150,
+        color: colors.suvaGrey,
         fontSize: responsiveFontSize(20),
         fontWeight: 'bold',
         fontFamily: fontFamily.segoeuiRegular,
@@ -89,19 +89,22 @@ borderBottomColor:'#FCCE09',
         alignItems: 'center',
         flexDirection: 'row'
     },
-    v1:{
+    v1: {
         marginTop: 90
-    },v2:{
+    }, v2: {
         marginTop: 30
     },
-    t1:{
-        textAlign: 'center', fontWeight: 'bold', fontSize: 25, color: 'white'
+    t1: {
+        textAlign: 'center', fontWeight: 'bold', fontSize: 30, color: '#02ACE6'
     },
-    t2:{
-        color: '#FFFFFF', fontSize: 20 
+    t11: {
+        textAlign: 'center', fontWeight: 'bold', fontSize: 20, color: '#02ACE6'
     },
-    t3:{
-        marginLeft: 50, marginRight: 50, paddingTop: 10 
+    t2: {
+        color: 'black', fontSize: 20
+    },
+    t3: {
+        marginLeft: 50, marginRight: 50, paddingTop: 10
     },
 
     Btncontainer: {
@@ -110,13 +113,16 @@ borderBottomColor:'#FCCE09',
         justifyContent: flexVariable.center,
 
     },
+    v6: {
+        borderBottomWidth: 1, borderBottomColor: '#555555'
+    },
 
     button: {
         marginTop: 10,
         alignSelf: 'center',
         alignItems: flexVariable.center,
         justifyContent: flexVariable.center,
-        backgroundColor: '#FBD203',
+        backgroundColor: '#02ACE6',
         padding: 10,
         borderRadius: 10,
         width: '50%',

@@ -9,6 +9,7 @@
 import React, {useEffect} from 'react';
 import {View, Text,YellowBox,ActivityIndicator} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
 import RootStackScreen from './src/components/Navigation/LoginNav1';
 import TabNav from './src/components/Navigation/Tabnav1';
 import MainNav from './src/components/Navigation/MainNav';
@@ -22,6 +23,8 @@ import {
 } from '@react-navigation/drawer';
 
 import Screen3 from './src/components/screens/BMT/screen3';
+import Screen31 from './src/components/screens/BMT/screen31';
+import Screen32 from './src/components/screens/BMT/screen32';
 import Screen4 from './src/components/screens/BMT/screen4';
 import Screen5 from './src/components/screens/BMT/screen5';
 import Screen6 from './src/components/screens/BMT/screen6';
@@ -33,6 +36,19 @@ import Screen11 from './src/components/screens/BMT/screen11';
 
 import { cate_fetch_action } from './src/components/redux/action/cataction';
 const Drawer = createDrawerNavigator();
+
+const Stack31 = createStackNavigator();
+
+const StackScreen31 = ({navigation}) => (
+  <Stack31.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+    <Stack31.Screen name="Screen3" component={Screen3} />
+    <Stack31.Screen name="Screen31" component={Screen31} />
+    <Stack31.Screen name="Screen32" component={Screen32} />
+  </Stack31.Navigator>
+);
 
 const store = ConfigureStore();
 
@@ -150,7 +166,7 @@ console.log("login token ",loginState.userToken)
    {loginState.userToken !== null ? (
      <Drawer.Navigator initialRouteName="Tab">
            <Drawer.Screen name="Tab" component={TabNav} />
-           <Drawer.Screen name="Teacher profile" component={Screen3} />
+           <Drawer.Screen name="Teacher profile" component={StackScreen31} />
            <Drawer.Screen name="School" component={Screen4} />
            <Drawer.Screen name="Substitute teacher Request" component={Screen5} />
            <Drawer.Screen name="Substitute teacher Requests" component={Screen6} />
