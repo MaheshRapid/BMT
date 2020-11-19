@@ -92,6 +92,34 @@ const Screen5 = () => {
                         </View>
                     </View>
 
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 30 }}>
+                        <View>
+                            <Text style={{ color: '#909090', fontSize: 12 }}>Years of exp required</Text>
+                            <View style={{ borderWidth: 1, width: 132,height:47, borderRadius: 5, borderColor: '#95989A' }}>
+                                <Picker
+                                    style={{ width: 130 }}
+                                >
+                                    <Picker.Item label="08" value="08" />
+                                    <Picker.Item label="05" value="05" />
+                                </Picker>
+                            </View>
+                        </View>
+
+                        <View >
+                            <Text style={{ color: '#909090', fontSize: 12 }}>Gender</Text>
+                            <View style={{ borderWidth: 1, width: 132,height:47, borderRadius: 5, borderColor: '#95989A' }}>
+                                <Picker
+                                    mode="dropdown"
+                                    style={{ width: 130 }}
+                                
+                                >
+                                    <Picker.Item label="Male" value="Male" />
+                                    <Picker.Item label="Female" value="Female" />
+                                </Picker>
+                            </View>
+                        </View>
+                    </View>
+
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Mother Tongue</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>

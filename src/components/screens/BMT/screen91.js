@@ -3,7 +3,7 @@ import { View, Picker, StyleSheet, Text, TextInput, TouchableOpacity, Image, Scr
 import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Screen9 = ({navigation}) => {
+const Screen91 = () => {
     const [selectedValue, setSelectedValue] = useState("");
     return (
         <ScrollView
@@ -15,83 +15,15 @@ const Screen9 = ({navigation}) => {
                         {/* <Image style={{ alignSelf: 'center', width: 282, height: 80 }} source={require('../images/poster.png')} /> */}
                     </View>
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={{ fontSize: 18, color: '#02ABE5', textAlign: 'center' }}>
-                            Master Class Module
-                        </Text>
-                    </View>
-                    <View style={{}}>
-                        <Text style={{ fontSize: 18, color: '#02ABE5', textAlign: 'center' }}>
-                            Registration of Industries
-                        </Text>
-                    </View>
+                   
 
 
                     <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Individual Company/Name</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput />
-                        </View>
-                    </View>
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Name</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput />
-                        </View>
-                    </View>
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Organisation Name</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput />
-                        </View>
-                    </View>
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Category/Industry</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput />
-                        </View>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Experience</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="5" value="1" />
-                                    <Picker.Item label="10" value="2" />
-                                </Picker>
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Medium Of Instructions</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="English" value="36" />
-                                    <Picker.Item label="other" value="98" />
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Subjects on which you would like to speak</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput />
-                        </View>
-                    </View>
-
-                    {/* <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Conatct Details</Text>
                         <View style={{flexDirection:'row', borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                       <View style={{marginLeft:10,top:8}}><Icon name="phone" size={30} color="#A7A7A7"/></View> 
+                       <View style={{marginLeft:10,top:8}}>
+                         <Image source={require('../../../Images/phone.png')} style={{height:20, width:20}}></Image>
+                         </View> 
                         <TextInput style={{width:'100%'}} />
                         </View>
                     </View>
@@ -99,7 +31,9 @@ const Screen9 = ({navigation}) => {
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Alternate Mobile Number</Text>
                         <View style={{flexDirection:'row', borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                       <View style={{marginLeft:10,top:8}}><Icon name="phone" size={30} color="#A7A7A7"/></View> 
+                       <View style={{marginLeft:10,top:8}}>
+                       <Image source={require('../../../Images/phone.png')} style={{height:20, width:20}}></Image>
+                           </View> 
                         <TextInput style={{width:'100%'}} />
                         </View>
                     </View>
@@ -153,9 +87,9 @@ const Screen9 = ({navigation}) => {
             </Text>
                         </TouchableOpacity>
                     </View>
- */}
 
-                    {/* <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
                         <View style={{ marginRight: 30 }}>
                             <TouchableOpacity>
                                 <Text style={{ color: '#02ACE6', marginTop: 10 }}>
@@ -171,22 +105,7 @@ const Screen9 = ({navigation}) => {
             </Text>
                             </TouchableOpacity>
                         </View>
-                    </View> */}
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
-
-                        <View style={{ marginLeft: 160 }}>
-                            <TouchableOpacity style={styles.button}
-                                onPress={() => navigation.navigate('Screen91')}>
-                                <Text style={{ color: 'white' }}>Next</Text>
-                            </TouchableOpacity>
-                        </View>
                     </View>
-
-
-
-
-
 
                 </View>
             </View>
@@ -194,7 +113,7 @@ const Screen9 = ({navigation}) => {
 
     );
 }
-export default Screen9;
+export default Screen91;
 
 
 
@@ -217,12 +136,11 @@ const styles = StyleSheet.create({
     button_upload:
     {
         color: '#909090',
-        padding: 15,
+        padding: 10,
         borderRadius: 5,
         borderWidth: 2,
         borderStyle: 'dashed',
         borderColor: '#95989A',
-        // paddingLeft: 50,
         width: 165,
         backgroundColor: '#F8FAFC'
     },

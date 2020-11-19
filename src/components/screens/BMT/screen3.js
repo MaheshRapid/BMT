@@ -236,14 +236,6 @@ const Screen3 = ({ navigation }) => {
                     </View>
 
 
-                    {/* <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Zip/PinCode</Text>
-                        <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
-                            <TextInput
-                                onChangeText={(value) => setpincode(value)}
-                                placeholder="Input" />
-                        </View>
-                    </View> */}
                     <View style={{ paddingTop: 10 }}>
                         <Text style={{ color: '#909090', fontSize: 12 }}>Alternative Contact Number</Text>
                         <View style={{ borderWidth: 1, height: 47, width: 308, borderColor: '#95989A', borderRadius: 5 }}>
@@ -252,7 +244,7 @@ const Screen3 = ({ navigation }) => {
                                 placeholder="Enter alternate mobile number" />
                         </View>
                     </View>
-                 
+
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
                         <View >
@@ -260,7 +252,7 @@ const Screen3 = ({ navigation }) => {
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
                                 <Picker
                                     mode="dropdown"
-                                    style={{ width: 120, height:47}}
+                                    style={{ width: 120, height: 47 }}
 
                                     selectedValue={qual}
                                     onValueChange={value => setqual(value)}
@@ -277,7 +269,7 @@ const Screen3 = ({ navigation }) => {
                             <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
                                 <Picker
                                     mode="dropdown"
-                                    style={{ width: 120, height:47}}
+                                    style={{ width: 120, height: 47 }}
                                     selectedValue={exp}
                                     onValueChange={value => setexp(value)}
                                 >
@@ -290,278 +282,14 @@ const Screen3 = ({ navigation }) => {
                         </View>
                     </View>
 
-                    {/* <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Previous Employment</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <View>
-                            <Text style={{ color: '#909090', fontSize: 12 }}>From</Text>
-                            <View>
-                                <DatePicker
-                                    style={{ width: 132 }}
-                                    mode="date"
-                                    date={datefrom}
-                                    placeholder="2020-09-25"
-                                    format="YYYY-MM-DD"
-                                    minDate="1970-01-01"
-                                    maxDate="2025-01-01"
-                                    customStyles={{
-                                        dateIcon: {
-                                            position: 'absolute',
-                                            left: 0,
-                                            top: 10,
-                                            marginLeft: 0
-                                        },
-                                        dateInput: {
-                                            marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height: 47, marginTop: 10
-                                        }
-                                    }}
-                                    onDateChange={(date) => setdatefrom(date)}
-                                />
-                            </View>
-                        </View>
-
-                        <View>
-                            <Text style={{ color: '#909090', fontSize: 12 }}>To</Text>
-                            <View>
-                                <DatePicker
-                                    style={{ width: 132 }}
-                                    date={dateto}
-                                    mode="date"
-                                    placeholder="2020-09-25"
-                                    format="YYYY-MM-DD"
-                                    minDate="1970-01-01"
-                                    maxDate="2025-01-01"
-                                    customStyles={{
-                                        dateIcon: {
-                                            position: 'absolute',
-                                            left: 0,
-                                            top: 10,
-                                            marginLeft: 0
-                                        },
-                                        dateInput: {
-                                            marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height: 47, marginTop: 10
-                                        }
-                                    }}
-                                    onDateChange={(date) => setdateto(date)}
-                                />
-                            </View>
-                        </View>
-                    </View>
-
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>School Name</Text>
-                            <View style={{ borderWidth: 1, height: 47, width: 132, borderColor: '#95989A', borderRadius: 5 }}>
-                                <TextInput
-                                    onChangeText={(value) => setsname(value)}
-                                    placeholder="Input" />
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Notice Period</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    mode="dropdown"
-                                    style={{ width: 120 }}
-                                    selectedValue={notice}
-                                    onValueChange={value => setnotice(value)}
-                                >
-                                    {nlist.map((notice, index) => (
-                                        <Picker.Item key={index + notice.noticeperiodid} label={notice.noticeperiod} value={notice.noticeperiodid} />
-                                    ))}
-
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Subjects Interested in</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    mode="dropdown"
-                                    style={{ width: 120 }}
-
-                                    selectedValue={subject}
-                                    onValueChange={value => setsubject(value)}
-                                >
-                                    {sublist.map((sub, index) => (
-
-                                        <Picker.Item key={index + sub.subjectid} label={sub.subject} value={sub.subjectid} />
-                                    ))}
-
-                                </Picker>
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Grades</Text>
-                            <View style={{ borderWidth: 1, width: 132, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    mode="dropdown"
-                                    style={{ width: 120 }}
-
-                                    selectedValue={grade}
-                                    onValueChange={value => setgrade(value)}
-                                >
-                                    {glist.map((grade, index) => (
-
-                                        <Picker.Item key={index + grade.gradeid} label={grade.grade} value={grade.gradeid} />
-                                    ))}
-
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Employment Category</Text>
-                        <View style={{ borderWidth: 1, width: 308, borderRadius: 5, borderColor: '#95989A' }}>
-                            <Picker
-                                mode="dropdown"
-                                style={{ width: 300 }}
-
-                                selectedValue={empcat}
-                                onValueChange={value => setempcat(value)}
-                            >
-                                {emlist.map((empcat, index) => (
-
-                                    <Picker.Item key={index + empcat.emp_catid} label={empcat.emp_category} value={empcat.emp_catid} />
-                                ))}
-
-                            </Picker>
-                        </View>
-                    </View> */}
-
-
-
-
-                    {/* <View style={{ paddingTop: 20 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Certifications</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-
-                        <TouchableOpacity>
-                            <Text style={styles.button_upload}>
-                                Upload Your Photo
-            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={{ fontWeight: 'bold', top: 15, paddingLeft: 50 }}>
-                                Upload
-            </Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={{ paddingTop: 10 }}>
-                        <Text style={{ color: '#909090', fontSize: 12 }}>Resume Upload</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-
-                        <TouchableOpacity>
-                            <Text style={styles.button_upload}>
-                                Resume Upload
-            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                           <Text style={{ fontWeight: 'bold', top: 15, paddingLeft: 50 }}>
-                                Upload
-            </Text> 
-                        </TouchableOpacity>
-                    </View> */}
-
-
-                    {/* image picker */}
-                    {/* <>
-                        <View style={{ marginTop: '1%' }}>
-                            <Text style={{ fontSize: 20, marginTop: '2%' }}>Upload Your Photo</Text>
-                            {banner == '' ? (
-                                <>
-                                    <Text>Please Upload Your Photo </Text>
-                                </>
-                            ) : (
-                                    <Image
-                                        source={banner}
-                                        style={{ width: '100%', height: 202, marginTop: 5 }}
-                                    />
-                                )}
-                        </View>
-
-                        <TouchableOpacity
-                            style={{
-                                marginTop: 10,
-                                height: 45,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                borderRadius: 30,
-                                backgroundColor: '#508CF5',
-                            }}
-                            onPress={() => {
-                                handleChoosePhoto();
-                            }}>
-                            <Text>{banner == "" ? ("Upload Your Photo") : ("Update Your Photo")}</Text>
-                        </TouchableOpacity>
-                    </> */}
-
-                    {/* <View style={{marginTop: '1%'}}>
-          <Text style={{fontSize: 20, marginTop: '2%'}}>Upload Your Resume</Text>
-          {banner == '' ? (
-            <>
-            <Text>Please Upload Your Resume </Text>
-            </>
-          ) : (
-            <Image
-              source={banner}
-              style={{width:'100%', height: 202, marginTop: 5}}
-            />
-          )}
-        </View>
-
-        <TouchableOpacity
-          style={{
-            marginTop: 10,
-            height: 45,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 30,
-            backgroundColor: '#508CF5',
-          }}
-          onPress={() => {
-            handleChooseResume();
-          }}>
-          <Text>{banner==""?("Upload Your Resume"):("Update Your Resume")}</Text>
-        </TouchableOpacity> */}
-
-
-                 
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
-                        {/* <View style={{ marginRight: 30 }}>
-                            <TouchableOpacity>
-                                <Text style={{ color: '#02ACE6', marginTop: 10 }}>
-                                    Cancel
-            </Text>
-                            </TouchableOpacity>
-                        </View> */}
-
-                        {/* <View style={{ marginLeft: 160 }}>
-                            <TouchableOpacity>
-                                <Text
-                                    onPress={() => { onsubmitapp() }}
-                                    style={styles.button}>
-                                    Next
-                            </Text>
-                            </TouchableOpacity>
-                        </View> */}
 
                         <View style={{ marginLeft: 160 }}>
                             <TouchableOpacity style={styles.button}
-                            onPress={() => navigation.navigate('Screen31')}>
-                                <Text style={{color:'white'}}>Next</Text>
-                          </TouchableOpacity>
+                                onPress={() => navigation.navigate('Screen31')}>
+                                <Text style={{ color: 'white' }}>Next</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
 

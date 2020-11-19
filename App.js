@@ -26,11 +26,13 @@ import Screen3 from './src/components/screens/BMT/screen3';
 import Screen31 from './src/components/screens/BMT/screen31';
 import Screen32 from './src/components/screens/BMT/screen32';
 import Screen4 from './src/components/screens/BMT/screen4';
+import Screen41 from './src/components/screens/BMT/screen41';
 import Screen5 from './src/components/screens/BMT/screen5';
 import Screen6 from './src/components/screens/BMT/screen6';
 import Screen7 from './src/components/screens/BMT/screen7';
 import Screen8 from './src/components/screens/BMT/screen8';
 import Screen9 from './src/components/screens/BMT/screen9';
+import Screen91 from './src/components/screens/BMT/screen91';
 import Screen10 from './src/components/screens/BMT/screen10';
 import Screen11 from './src/components/screens/BMT/screen11';
 
@@ -47,8 +49,36 @@ const StackScreen31 = ({navigation}) => (
     <Stack31.Screen name="Screen3" component={Screen3} />
     <Stack31.Screen name="Screen31" component={Screen31} />
     <Stack31.Screen name="Screen32" component={Screen32} />
+    
   </Stack31.Navigator>
 );
+
+
+const Stack41 = createStackNavigator();
+
+const StackScreen41 = ({navigation}) => (
+  <Stack41.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+    <Stack41.Screen name="Screen4" component={Screen4} />
+    <Stack41.Screen name="Screen41" component={Screen41} />
+  </Stack41.Navigator>
+);
+
+const Stack91 = createStackNavigator();
+
+const StackScreen91 = ({navigation}) => (
+  <Stack91.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}>
+    <Stack91.Screen name="Screen9" component={Screen9} />
+    <Stack91.Screen name="Screen91" component={Screen91} />
+  </Stack91.Navigator>
+);
+
+
 
 const store = ConfigureStore();
 
@@ -167,12 +197,12 @@ console.log("login token ",loginState.userToken)
      <Drawer.Navigator initialRouteName="Tab">
            <Drawer.Screen name="Tab" component={TabNav} />
            <Drawer.Screen name="Teacher profile" component={StackScreen31} />
-           <Drawer.Screen name="School" component={Screen4} />
-           <Drawer.Screen name="Substitute teacher Request" component={Screen5} />
-           <Drawer.Screen name="Substitute teacher Requests" component={Screen6} />
+           <Drawer.Screen name="School" component={StackScreen41} />
+           <Drawer.Screen name="Substitute Teacher Request" component={Screen5} />
+           <Drawer.Screen name="Substitute Teacher List" component={Screen6} />
            <Drawer.Screen name="I Need A Teacher" component={Screen7} />
-           <Drawer.Screen name="Teacher List" component={Screen8} />
-           <Drawer.Screen name="Master class module" component={Screen9} />
+           <Drawer.Screen name="Permanent Teacher List" component={Screen8} />
+           <Drawer.Screen name="Master class module" component={StackScreen91} />
            <Drawer.Screen name="request for session" component={Screen10} />
            <Drawer.Screen name="session report" component={Screen11} />
          

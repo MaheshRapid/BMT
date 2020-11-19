@@ -31,7 +31,23 @@ const state = this.state;
                     </View> 
 
                     
-                    <View style={{top:130, left:140}}><Icon name="phone" size={30} color="#A7A7A7"/></View>
+                    <View style={{ top: 130, left: 140 }}>
+
+
+                        <TouchableOpacity>
+                            <Image source={require('../../../Images/phone.png')} style={{ height: 20, width: 20, top: 20 }}></Image>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{
+                            height: 30, width: 60, marginLeft: 80,
+                            backgroundColor: '#02ABE5',
+                            borderRadius: 5
+                        }}>
+                            <Text style={{ color: 'white', textAlign: 'center', top: 7 }}>View</Text>
+                        </TouchableOpacity>
+
+                    </View>
+
                     <View style={{ paddingTop: 10 }}>
                         <Table borderStyle={{ borderWidth: 1, borderColor: '#95989A'}}>
                             <Row data={state.tableHead} style={styles.head} textStyle={styles.text} />
@@ -40,8 +56,9 @@ const state = this.state;
                     </View>
 
 
-                    <View style={{top:20}}>
-                        <Text style={{fontSize:20, color:'#02ABE5'}}>Click Once</Text>
+                  
+                    <View style={{ top: 20, borderWidth: 1, borderColor: '#707070', height:40 }}>
+                        <Text style={{ fontSize: 20, color: '#807B7B', margin:5 }}>Click On View to get more details</Text>
                     </View>
                     <View style={{marginTop:40}}>
                         <Text style={{fontSize:14, color: '#909090'}}>The following will be displayed</Text>
@@ -86,138 +103,6 @@ const state = this.state;
                     </View>
 
 
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10}}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>From Date</Text>
-                            <View style={{}}>
-                                <DatePicker
-                                    style={{ width: 142 }}
-                                    mode="date"
-                                    placeholder="2020-09-25"
-                                    format="YYYY-MM-DD"
-                                    minDate="2016-05-01"
-                                    maxDate="2016-06-01"
-                                    customStyles={{
-                                        dateIcon: {
-                                            position: 'absolute',
-                                            left: 0,
-                                            top: 10,
-                                            marginLeft: 0
-                                        },
-                                        dateInput: {
-                                            marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height:47, marginTop:10
-                                        }
-                                    }}
-                                // onDateChange={(date) => { this.setState({ date: date }) }}
-                                />
-                            </View>
-                        </View>
-                        
-                        <View>
-                            <Text style={{ color: '#909090', fontSize: 12 }}>To Date</Text>
-                            <View>
-                                <DatePicker
-                                    style={{ width: 142 }}
-                                    mode="date"
-                                    placeholder="2020-09-25"
-                                    format="YYYY-MM-DD"
-                                    minDate="2016-05-01"
-                                    maxDate="2016-06-01"
-                                    customStyles={{
-                                        dateIcon: {
-                                            position: 'absolute',
-                                            left: 0,
-                                            top: 10,
-                                            marginLeft: 0
-                                        },
-                                        dateInput: {
-                                            marginLeft: 0, borderRadius: 5, borderColor: '#95989A', height:47, marginTop:10
-                                        }
-                                    }}
-                                // onDateChange={(date) => { this.setState({ date: date }) }}
-                                />
-                            </View>
-
-                        </View>
-                    </View>
-
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 30 }}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Grade</Text>
-                            <View style={{ borderWidth: 1, width: 142, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="Primary" value="1" />
-                                    <Picker.Item label="Secondary" value="2" />
-                                </Picker>
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Subject</Text>
-                            <View style={{ borderWidth: 1, width: 142, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="Maths" value="11" />
-                                    <Picker.Item label="Sanskrit" value="12" />
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 30 }}>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Expected in days</Text>
-                            <View style={{ borderWidth: 1, width: 142, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="15" value="1" />
-                                    <Picker.Item label="30" value="2" />
-                                </Picker>
-                            </View>
-                        </View>
-                        <View >
-                            <Text style={{ color: '#909090', fontSize: 12 }}>Area</Text>
-                            <View style={{ borderWidth: 1, width: 142, borderRadius: 5, borderColor: '#95989A' }}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 47 }}
-                                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                                    <Picker.Item label="Telangana" value="11" />
-                                    <Picker.Item label="other" value="12" />
-                                </Picker>
-                            </View>
-                        </View>
-                    </View>
-
-                    {/* <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
-                        <View style={{ marginRight: 30 }}>
-                            <TouchableOpacity>
-                                <Text style={{ color: '#02ACE6', marginTop: 10 }}>
-                                    Cancel
-            </Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={{ marginLeft: 60 }}>
-                            <TouchableOpacity>
-                                <Text style={styles.button}>
-                                    Submit
-            </Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View> */}
 
 
                 </View>

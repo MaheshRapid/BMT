@@ -20,7 +20,6 @@ const Screen32 = () => {
 
 
                     <View style={{ flexDirection: 'row', marginTop: 40 }}>
-
                         <TouchableOpacity>
                             <Text style={styles.button_upload}>
                                 <Image source={require('../../../../src/assests/images/file.png')}
